@@ -1,4 +1,4 @@
-# kiddy_market
+# Emart
 
 A new Flutter project.
 
