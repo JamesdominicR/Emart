@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiddy_market/controller/login_controller.dart';
 import 'package:kiddy_market/core/colors/colors.dart';
-import 'package:kiddy_market/view/authentication/signup_screen.dart';
 import 'package:kiddy_market/view/login/widgets/textformfield_widget.dart';
+import 'package:kiddy_market/view/main_page/screen_main_page.dart';
+import 'package:kiddy_market/view/signup/signup_screen.dart';
 import '../home/widgets/button_widget.dart';
-import '../authentication/widgets/textformfield_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({Key? key}) : super(key: key);
   final _emailController = TextEditingController();
-  final signInController = Get.put(LoginController());
-
+ // final signInController = Get.put(LoginController());
   final _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
@@ -64,6 +63,7 @@ class SigninPage extends StatelessWidget {
                     SizedBox(height: 20.h),
                     TextFormFieldWidget(
                       title: 'Email',
+                      icon: Icons.email,
                       controller: _emailController,
                       validator: (value) {
                         if (!GetUtils.isEmail(value)) {
@@ -78,6 +78,7 @@ class SigninPage extends StatelessWidget {
                     SizedBox(height: 10.h),
                     TextFormFieldWidget(
                       title: 'Password',
+                      icon: Icons.lock,
                       controller: _passwordController,
                       validator: (value) {
                         if (value.toString().length < 4) {
@@ -86,20 +87,22 @@ class SigninPage extends StatelessWidget {
                         if (value.toString().isEmpty) {
                           return 'Please enter the password';
                         }
+                      return null;
                       },
                     ),
                     SizedBox(height: 60.h),
                     ButtonWidget(
                       title: 'Sign In',
                       ontap: () {
-                        if (_emailController.text.isEmpty ||
-                            _passwordController.text.isEmpty) {
-                              //snack bar
-                          return;
-                        } else {
-                          signInController.signInuser(
-                              _emailController.text, _passwordController.text);
-                        }
+                        // if (_emailController.text.isEmpty ||
+                        //     _passwordController.text.isEmpty) {
+                        //       //snack bar
+                        //   return;
+                        // } else {
+                        //   signInController.signInuser(
+                        //       _emailController.text, _passwordController.text);
+                        // }
+                        Get.to(ScreenMainPage());
                       },
                     ),
                     SizedBox(height: 13.h),
@@ -118,7 +121,7 @@ class SigninPage extends StatelessWidget {
                                 fontSize: 14.sp,
                               ),
                               recognizer: TapGestureRecognizer()..onTap = () {
-                                Get.to(const SignupScreen());
+                                Get.to(SignupScreen());
                               }
                             ),
                           ]

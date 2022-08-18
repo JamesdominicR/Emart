@@ -9,7 +9,7 @@ class ScreenMainPage extends StatelessWidget {
    ScreenMainPage({Key? key}) : super(key: key);
   final _pages = [
     HomeScreen(),
-    const CategoryScreen(),
+   // const CategoryScreen(),
     const CartScreen(),
     const WishlistScreen(),
           AccountScreen(),

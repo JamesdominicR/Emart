@@ -18,12 +18,13 @@ class ButtonWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 140,vertical: 13),
+      padding: const EdgeInsets.symmetric(horizontal: 140,vertical: 13,
+       ),
       ),
-     
-      child: Text(title,
+      child: Text(
+      title,
       style: TextStyle(
-        color: Color(0xff0E3746),
+      color: Color(0xff0E3746),
         fontSize: 14.sp,
       ),
       ),
