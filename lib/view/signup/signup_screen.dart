@@ -4,7 +4,7 @@ import 'package:kiddy_market/core/colors/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kiddy_market/view/home/widgets/button_widget.dart';
 import 'package:kiddy_market/view/login/widgets/textformfield_widget.dart';
-import 'package:kiddy_market/view/signup/otp_screen.dart';
+import 'package:kiddy_market/view/main_page/screen_main_page.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({Key? key}) : super(key: key);
@@ -139,6 +139,7 @@ class SignupScreen extends StatelessWidget {
                               // Navigator.push(context, MaterialPageRoute(builder: ((context) => ScreenMainPage())
                               // ),
                               // );
+                              Get.to(ScreenMainPage());
                             }),
                            ]
               ),
@@ -146,7 +147,6 @@ class SignupScreen extends StatelessWidget {
           ),
         ),
       ),
-
     );
     
   }

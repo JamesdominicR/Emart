@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:kiddy_market/core/colors/colors.dart';
 class WishlistScreen extends StatelessWidget {
-  const WishlistScreen({Key? key}) : super(key: key);
-
+   WishlistScreen({Key? key}) : super(key: key);
+final List images = [
+    'assets/Images/product image 1.webp',
+    'assets/Images/product image 1.webp',
+    'assets/Images/product image 2.jpg',
+    'assets/Images/product image 3.webp',
+    'assets/Images/procuct image 4.webp',
+    'assets/Images/product image 5.jpg',
+    'assets/Images/product image  shoe.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +26,7 @@ class WishlistScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView.builder(
-        itemCount: 4,
+        itemCount: 1,
         itemBuilder: ( context,index) {
           return Padding(
             padding: const EdgeInsets.only(left: 12,top: 20),
@@ -33,12 +41,12 @@ class WishlistScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.green,
                         image: DecorationImage(
-                          image: AssetImage('assets/Images/product image 1.webp'),
+                          image: AssetImage(images[index]),
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                      Container(
                       height: 120,
                       width: 170,
@@ -46,7 +54,7 @@ class WishlistScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.green,
                          image: DecorationImage(
-                          image: AssetImage('assets/Images/product image 1.webp'),
+                          image: AssetImage(images[index]),
                           fit: BoxFit.cover,
                         ),
                       ),

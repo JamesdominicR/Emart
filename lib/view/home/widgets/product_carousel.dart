@@ -1,27 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:kiddy_market/core/colors/colors.dart';
+import 'package:kiddy_market/core/constants.dart';
 
-import '../../../core/constants.dart';
-
-class ProductCard extends StatelessWidget {
-  const ProductCard({
+class ProductCarousel extends StatelessWidget {
+   ProductCarousel({
     Key? key,
+    
   }) : super(key: key);
+
+  
+  final List images = [
+    'assets/Images/product image 1.webp',
+    'assets/Images/product image 1.webp',
+    'assets/Images/product image 2.jpg',
+    'assets/Images/product image 3.webp',
+    'assets/Images/procuct image 4.webp',
+    'assets/Images/product image 5.jpg',
+    'assets/Images/product image  shoe.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView.builder(
+     padding: const EdgeInsets.symmetric(horizontal: 10),
+     shrinkWrap: true,
+     scrollDirection: Axis.horizontal,
+     itemCount: images.length,
+     itemBuilder: (context, index) {
+     return  Padding(
+       padding: const EdgeInsets.only(right: 10),
+       child: Column(
      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
          height: 124,
          width: 167,
          decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(images[index]),
+          fit: BoxFit.fill,
+          ),
            borderRadius: BorderRadius.circular(10),
            color: Colors.green,
          ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
          mainAxisAlignment: MainAxisAlignment.start,
           children: const[
@@ -39,18 +61,18 @@ class ProductCard extends StatelessWidget {
             ),
           ],
         ),
-        Text('Shirt',
+        const Text('Shirt',
         style: style1,
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
          width: 167,
          height: 45,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
          color: Colors.blue,
         ),
-        child: Center(
+        child: const Center(
           child: Text('Add To Cart',
           style: TextStyle(
            fontSize: 15,
@@ -61,6 +83,9 @@ class ProductCard extends StatelessWidget {
         ),
         ),
       ],
+    ),
+     );
+    }
     );
   }
 }
